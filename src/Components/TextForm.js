@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 
 export default function TextForm(props) {
   const [text,setText]=useState("Enter text here");
+
+  // change update text
    const onchange=(event)=>{
      
         setText(event.target.value);
@@ -22,19 +24,24 @@ const LowerCase=()=>{
     setText(newText);
 
 }
+
+// clear text
 const clearText=()=>{
 
     setText(" ");
 
 }
 
+// screen-shot 
 const downloadText=()=>{
            
         window.print(text);
 }
 
+// remove extra space
 const removeSpace=()=>{
-  const val=text.split(/[ ]+/);
+// /s white space remove
+  const val=text.split(/\s+/);
   setText(val.join(" ").trim());
 
 }
@@ -50,10 +57,12 @@ const downloadFile = () => {
 };
   return (
     <>
-    <div>
+    <div className='container'style={{color: props.mode === 'light' ?'#042743' :'white' , backgroundColor: props.mode === 'light' ?'white' :'#042743'}}>
         <div className="mb-2">
-        <label htmlFor="myBox" className="form-label">{props.heading}</label>
-        <textarea className="form-control" id="myBox" rows="3" value={text} onChange={onchange}></textarea>
+        <label htmlFor="myBox" className="form-label my-3"><h4 >{props.heading} : </h4></label>
+
+        {/* { javaScript{ object}} */}
+        <textarea className="form-control " id="myBox" rows="3" value={text} onChange={onchange} style={{color: props.mode === 'light' ?'#042743' :'white' , backgroundColor: props.mode === 'light' ?'white' :'#042743'}}></textarea>
         </div>
 
         <button className=' btn btn-primary me-3 my-1' onClick={upperCase}>convert to Uppercase</button>
@@ -64,11 +73,11 @@ const downloadFile = () => {
 
         <button className='btn btn-primary  my-1 me-3' onClick={downloadFile}>DownloadText</button>
 
-        <button className='btn btn-primary my-1' onClick={downloadText}>ScreenShot</button>
+        <button className='btn btn-primary my-1 me-3' onClick={downloadText}>ScreenShot</button>
 
-        <button className='btn btn-primary my-1' onClick={removeSpace}>Remove Extra Space</button>
+        <button className='btn btn-primary mz-1' onClick={removeSpace}>Remove Extra Space</button>
 
-    </div>
+   
 
     <div className='container my-2'>
      <h1> WordCounter : </h1>
@@ -81,6 +90,7 @@ const downloadFile = () => {
       </p>
       <h2>Preview content :</h2>
       <p>{text}</p>
+    </div>
     </div>
     </>
   )
