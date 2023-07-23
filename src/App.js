@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
 function App() {
+  // functional state
   const[mode,setMode] = useState("light");
 
   const[alert,changeAlert] = useState(null);

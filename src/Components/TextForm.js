@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 
 export default function TextForm(props) {
-  const [text,setText]=useState("Enter text here");
+  const [text,setText]=useState("");
 
   // change update text
    const onchange=(event)=>{
@@ -28,7 +28,7 @@ const LowerCase=()=>{
 // clear text
 const clearText=()=>{
 
-    setText(" ");
+    setText("");
 
 }
 
@@ -46,6 +46,7 @@ const removeSpace=()=>{
 
 }
 
+// download text
 const downloadFile = () => {
   const link = document.createElement("a");
   const content = text;
