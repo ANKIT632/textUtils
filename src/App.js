@@ -48,7 +48,7 @@ function App() {
 
   return (
     <>
-      <Router basename='/textUtils'>
+      <Router basename='textUtils'>
         <Navbar title="Textutils" toggle={toggleMode} mode={mode}></Navbar>
         <Alert alert={alert} />
         <Routes>
